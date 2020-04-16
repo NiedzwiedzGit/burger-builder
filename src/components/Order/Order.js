@@ -1,9 +1,9 @@
 import React from 'react';
 import classes from './Order.css';
-const order = (props) => {
+const order = (props) => (
     <div className={classes.Order}>
-        <p>Ingredients:Salad(1)</p>
+        <p>Ingredients:Salad</p>
         <p>Price:<strong>USD 5.60</strong></p>
     </div>
-};
+);
 export default order;
