@@ -8,12 +8,11 @@ import Input from '../../../components/UI/Input/Input';
 class ContactData extends Component {
     state = {
         orderForm: {
-
             name: {
                 elementType: 'input',
                 elementConfig: {
                     type: 'text',
-                    placeholder: 'Your name'
+                    placeholder: 'Your Name'
                 },
                 value: ''
             },
@@ -29,7 +28,7 @@ class ContactData extends Component {
                 elementType: 'input',
                 elementConfig: {
                     type: 'text',
-                    placeholder: 'Zip Code'
+                    placeholder: 'ZIP Code'
                 },
                 value: ''
             },
@@ -45,7 +44,7 @@ class ContactData extends Component {
                 elementType: 'input',
                 elementConfig: {
                     type: 'email',
-                    placeholder: 'Mail'
+                    placeholder: 'Your E-Mail'
                 },
                 value: ''
             },
@@ -79,21 +78,20 @@ class ContactData extends Component {
                 this.setState({ loading: false });
             });
     }
+
     render() {
         const formElementsArray = [];
         for (let key in this.state.orderForm) {
             formElementsArray.push({
                 id: key,
                 config: this.state.orderForm[key]
-
             });
-            //console.log(formElementsArray);
         }
-        let form = (<form>
+        let form = (<form >
             {formElementsArray.map(formElement => (
                 <Input
                     key={formElement.id}
-                    elemntType={formElement.config.elementType}
+                    elementType={formElement.config.elementType}
                     elementConfig={formElement.config.elementConfig}
                     value={formElement.config.value} />
             ))}
