@@ -5,26 +5,17 @@ import Burger from '../../components/Burger/Burger';
 import BuildControls from '../../components/Burger/BuildControls/BuildControls';
 import Modal from '../../components/UI/Modal/Modal';
 import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
-import axios from '../../axios-orders';
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import * as burgerBuilderActions from '../../store/actions/index';
+import axios from '../../axios-orders';
 
 class BurgerBuilder extends Component {
     state = {
-        purchasing: false,
-        loading: false,
-        error: false
+        purchasing: false
     }
-    componentDidMount() {
-        // axios.get('https://react-my-burger-51237.firebaseio.com/ingredients.json')
-        //     .then(responce => {
-        //         this.setState({ ingredients: responce.data });
-        //     })
-        //     .catch(error => {
-        //         this.setState({ error: true });
-        //     });
-    }
+    componentDidMount() { }
+
     updatePurchaseState(ingredients) {
         const sum = Object.keys(ingredients)
             .map(igKey => {
@@ -77,9 +68,7 @@ class BurgerBuilder extends Component {
                 purchaseCancelled={this.purchaseCancelHandler}
                 purchaseContinued={this.purchaseContinueHandler} />;
         }
-        if (this.state.loading) {
-            orderSummary = <Spinner />;
-        }
+
         return (
             <Aux>
                 <Modal show={this.state.purchasing} modalClosed={this.purchaseCancelHandler}>
