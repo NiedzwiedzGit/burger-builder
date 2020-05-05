@@ -3,7 +3,7 @@ import axios from '../../axios-orders';
 
 export const purchaseBurgerSuccess = (id, orderData) => {
     return {
-        typep: actionTypes.PURCHASE_BURGER_SUCCESS,
+        type: actionTypes.PURCHASE_BURGER_SUCCESS,
         orderId: id,
         orderData: orderData
     };
@@ -11,7 +11,7 @@ export const purchaseBurgerSuccess = (id, orderData) => {
 
 export const purchaseBurgerFail = (error) => {
     return {
-        typep: actionTypes.PURCHASE_BURGER_FAIL,
+        type: actionTypes.PURCHASE_BURGER_FAIL,
         error: error
     };
 };
