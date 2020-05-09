@@ -35,13 +35,12 @@ export const auth = (email, password, isSignup) => {
             url = 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBH2H77-aKMk6KUQQKBfDc9kp3MuO4z-f0';
         }
         axios.post(url, authData)
-            .then(responce => {
-                console.log(responce);
-                dispatch(authSuccess(responce.data.idToken, responce.data.localId));
+            .then(response => {
+                console.log(response);
+                dispatch(authSuccess(response.data.idToken, response.data.localId));
             })
             .catch(err => {
-                console.log(err);
-                dispatch(authFail(err));
+                dispatch(authFail(err.response.data.error));
             });
     };
 }
