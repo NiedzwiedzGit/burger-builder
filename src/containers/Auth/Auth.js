@@ -6,8 +6,7 @@ import Button from '../../components/UI/Button/Button';
 import classes from './Auth.css';
 import * as action from '../../store/actions/index';
 import Spiner from '../../components/UI/Spinner/Spinner';
-import { stat } from 'fs';
-import { bindActionCreators } from '../../../../../../../Users/Igor/AppData/Local/Microsoft/TypeScript/2.9/node_modules/redux';
+import { updateObject } from '../../shared/utility';
 
 class Auth extends Component {
     state = {
@@ -80,15 +79,14 @@ class Auth extends Component {
     }
 
     inputChangedHandler = (event, controlName) => {
-        const updatedControls = {
-            ...this.state.controls,
-            [controlName]: {
-                ...this.state.controls[controlName],
+        const updatedControls = updateObject(this.state.controls, {
+            [controlName]: updateObject(this.state.controls[controlName], {
                 value: event.target.value,
                 valid: this.checkValidity(event.target.value, this.state.controls[controlName].validation),
                 touched: true
-            }
-        };
+            })
+        });
+
         this.setState({ controls: updatedControls });
     }
     submitHandler = (event) => {
