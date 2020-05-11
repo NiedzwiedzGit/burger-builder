@@ -1,7 +1,5 @@
 import React from 'react';
-
 import classes from './Input.css';
-import { join } from 'path';
 
 const input = (props) => {
     let inputElement = null;
